@@ -16,8 +16,8 @@
     <%= f.select :status, options_for_select(["Backlog","Not Started","In Progress", "Test", "Done"],[@story.status])%>
   </div>
   <div class="field">
-    <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-    <%= f.text_field :tag_list %>
+    <%= f.label :tags, "Tags (separated by commas)" %><br />
+    <%= f.text_field :tags %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br />
