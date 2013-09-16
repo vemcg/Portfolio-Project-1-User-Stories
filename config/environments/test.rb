@@ -1,4 +1,12 @@
 Pp1::Application.configure do
+
+     silence_warnings do
+        begin
+            require 'pry'
+            IRB = Pry
+        rescue LoadError
+        end
+    end
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's

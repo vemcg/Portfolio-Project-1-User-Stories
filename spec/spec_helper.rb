@@ -10,6 +10,10 @@ require 'factory_girl_rails'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+def logger
+  Rails.logger
+end
+
 RSpec.configure do |config|
   # ## Mock Framework
   #

@@ -1,4 +1,13 @@
 Pp1::Application.configure do
+
+  ##GNH ADDED Pry 
+     silence_warnings do
+        begin
+            require 'pry'
+            IRB = Pry
+        rescue LoadError
+        end
+    end
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
