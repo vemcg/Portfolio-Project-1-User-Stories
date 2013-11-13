@@ -1,0 +1,11 @@
+#This is how to start the elastic search engine from anywhere:
+~/temproj/vendor/elasticsearch-0.20.6/bin/elasticsearch -p ~/searchapp/tmp/pids/elasticsearch.pid
+#index all the Stories fields
+rake environment tire:import CLASS=Story FORCE=true
+# INSTALLATION OF ELASTIC SEARCH ENGINE AND START FROM vendor directory:
+cd ~temproj/vendor
+curl -k -L -# -o elasticsearch-0.20.6.tar.gz \
+      "http://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.20.6.tar.gz"
+    tar -zxf elasticsearch-0.20.6.tar.gz
+    rm  -f   elasticsearch-0.20.6.tar.gz
+    ./elasticsearch-0.20.6/bin/elasticsearch -p ~/temproj/vendor/elasticsearch-0.20.6//tmp/pids/elasticsearch.pid
