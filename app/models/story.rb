@@ -40,9 +40,22 @@ All this tagging stuff deferred until after bullet gem
   # scope :tagged_stories, properly_ordered.where()
 
   # returns the stories which have tags of a given name
+
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+  def to_indexed_json
+     to_json(methods: [:status_name,:priority_name])
+  end
+  def status_name
+     status.name
+  end
+  def priority_name
+     priority.name
+  end
   def self.tagged_with(name)
     Tag.find_by_name!(name).stories
   end
+
 
   # returns a list of tags sorted in ascending order by tag name 
   # with the number of stories which have that tag.  This was originally

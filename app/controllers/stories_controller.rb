@@ -4,6 +4,25 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   # note:  tagged_with is defined in story.rb
+  def search
+ @stories = Story.tire.search params[:q],:per_page => 20, :load => true
+ ##// Sorting, the include, 
+ 
+     ###@results = Painting.search(params[:query])
+       
+      
+  ###    options = { :page => (params[:page] || 1), :size => 100 }
+  ###  query = params[:q]
+ ### @results = Tire.search ['articles'], options do
+  ###   query { string query }
+  ###   from options[:size].to_i * (options[:page].to_i-1)
+  ###  end
+
+
+
+
+    render :action => "index"
+  end
   def index
     if params[:tag]
       @stories = Story.tagged_with(params[:tag]).properly_ordered

@@ -1,5 +1,12 @@
 %h1 User Stories
 //.button_panel.button
+
+= form_tag search_stories_path, :method => 'get' do
+  = label_tag :query
+  = text_field_tag :q, params[:q]
+  = submit_tag :search
+
+
 .button
   = link_to 'New Story', new_story_path
 #tag_cloud

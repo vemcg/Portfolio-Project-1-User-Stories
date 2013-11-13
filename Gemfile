@@ -8,8 +8,8 @@ gem 'rails', '3.2.11'
 gem 'pg'
 
 
-gem 'thinking-sphinx' #{}"~> 3.0.2"
-gem 'mysql2'  #{}"0.3.12b5"
+#gem 'thinking-sphinx' #{}"~> 3.0.2"
+#gem 'mysql2'  #{}"0.3.12b5"
 
 # therubyracer provices a JavaScript container
 #    this is not needed for Windows
@@ -60,8 +60,7 @@ group :development do
   gem "bullet"
 
 end
-
-
+gem 'tire', :git => 'git://github.com/karmi/tire.git' # elasticsearch engine
 # Use unicorn as the web server
 # gem 'unicorn'
 

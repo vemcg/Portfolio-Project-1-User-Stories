@@ -1,3 +1,16 @@
+GIT
+  remote: git://github.com/karmi/tire.git
+  revision: c668c9b9d58b28920f18df2f2c85a9aa716c8bc4
+  specs:
+    tire (0.6.1)
+      activemodel (>= 3.0)
+      activesupport
+      ansi
+      hashr (~> 0.0.19)
+      multi_json (~> 1.3)
+      rake
+      rest-client (~> 1.6)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -46,7 +59,7 @@ GEM
       xpath (~> 2.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
-    coderay (1.0.9)
+    coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -62,7 +75,7 @@ GEM
       debugger-ruby_core_source (~> 1.2.3)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.3)
-    diff-lcs (1.2.4)
+    diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
     factory_girl (4.3.0)
@@ -74,22 +87,23 @@ GEM
       multipart-post (~> 1.2.0)
     ffi (1.9.3)
     formatador (0.2.4)
-    guard (2.2.2)
+    guard (2.2.3)
       formatador (>= 0.2.4)
       listen (~> 2.1)
       lumberjack (~> 1.0)
       pry (>= 0.9.12)
       thor (>= 0.18.1)
-    guard-rspec (4.0.3)
+    guard-rspec (4.0.4)
       guard (>= 2.1.1)
       rspec (~> 2.14)
-    haml (4.0.3)
+    haml (4.1.0.alpha.2)
       tilt
     haml-rails (0.4)
       actionpack (>= 3.1, < 4.1)
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
+    hashr (0.0.22)
     hike (1.2.3)
     hpricot (0.8.6)
     html2haml (1.0.1)
@@ -99,7 +113,6 @@ GEM
       ruby_parser (~> 3.1.1)
     httpauth (0.2.0)
     i18n (0.6.5)
-    innertube (1.1.0)
     interception (0.3)
     journey (1.0.4)
     jquery-rails (3.0.4)
@@ -121,12 +134,10 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     method_source (0.8.2)
-    middleware (0.1.0)
     mime-types (1.25)
     mini_portile (0.5.2)
     multi_json (1.8.2)
     multipart-post (1.2.0)
-    mysql2 (0.3.13)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     oauth (0.4.7)
@@ -138,8 +149,8 @@ GEM
       rack (~> 1.2)
     pg (0.17.0)
     polyglot (0.3.3)
-    pry (0.9.12.2)
-      coderay (~> 1.0.5)
+    pry (0.9.12.3)
+      coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
     pry-debugger (0.2.2)
@@ -183,13 +194,14 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
-    riddle (1.5.9)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
     rspec-core (2.14.7)
-    rspec-expectations (2.14.3)
+    rspec-expectations (2.14.4)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.4)
     rspec-rails (2.14.0)
@@ -209,7 +221,7 @@ GEM
       tilt (~> 1.3)
     sexp_processor (4.4.0)
     slop (3.4.6)
-    sorcery (0.8.2)
+    sorcery (0.8.4)
       bcrypt-ruby (~> 3.0.0)
       oauth (~> 0.4.4)
       oauth2 (~> 0.8.0)
@@ -221,12 +233,6 @@ GEM
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
-    thinking-sphinx (3.0.6)
-      activerecord (>= 3.1.0)
-      builder (>= 2.1.2)
-      innertube (>= 1.0.2)
-      middleware (>= 0.1.0)
-      riddle (>= 1.5.9)
     thor (0.18.1)
     tilt (1.4.1)
     timers (1.1.0)
@@ -236,7 +242,7 @@ GEM
     turn (0.9.6)
       ansi
     tzinfo (0.3.38)
-    uglifier (2.3.0)
+    uglifier (2.3.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     uniform_notifier (1.4.0)
@@ -260,7 +266,6 @@ DEPENDENCIES
   html2haml
   jquery-rails
   launchy
-  mysql2
   pg
   pry-debugger
   pry-doc
@@ -273,6 +278,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sorcery
   therubyracer
-  thinking-sphinx
+  tire!
   turn
   uglifier
