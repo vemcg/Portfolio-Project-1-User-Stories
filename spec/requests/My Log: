@@ -1,0 +1,10 @@
+My Log:
+
+created a temporary place to pull down wendy's file 
+git init
+create the git remote add wendy ...
+bundle update
+bundle install
+rake db:migrate
+rake db:test:prepare #(this is necessary to no get wierd errors from model not exsistng)
+rspec spec # this creates one error only

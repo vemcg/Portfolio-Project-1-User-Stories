@@ -7,6 +7,10 @@ gem 'rails', '3.2.11'
 
 gem 'pg'
 
+
+#gem 'thinking-sphinx' #{}"~> 3.0.2"
+#gem 'mysql2'  #{}"0.3.12b5"
+
 # therubyracer provices a JavaScript container
 #    this is not needed for Windows
 # under Windows, run 
@@ -31,14 +35,32 @@ end
 
 gem 'jquery-rails'
 gem 'haml-rails'
+group :development, :test do
+  gem "rspec-rails"
+  gem "launchy"
+  gem "debugger"
+  gem "pry-rescue"
+  gem "pry-stack_explorer"
+  gem "pry-doc"
+  gem "pry-debugger"
+  gem "runner"
+end
+
+group :test do
+  gem "factory_girl_rails", "~> 4.0"
+  gem "capybara"
+  gem "guard-rspec"
+
+end
 
 group :development do
   gem 'hpricot'
   gem 'ruby_parser'
   gem 'html2haml'
+  gem "bullet"
+
 end
-
-
+gem 'tire', :git => 'git://github.com/karmi/tire.git' # elasticsearch engine
 # Use unicorn as the web server
 # gem 'unicorn'
 

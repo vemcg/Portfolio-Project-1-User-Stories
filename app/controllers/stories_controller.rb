@@ -3,16 +3,33 @@ class StoriesController < ApplicationController
   
   # GET /stories
   # GET /stories.json
-  def index	
-    # TODO: Sort by priority order not priority id
-    if params[:tag]
-      @stories = Story.tagged_with(params[:tag]).order('priority_id ASC, created_at DESC')
-    else
-      @stories = Story.all(:order => 'priority_id ASC, created_at DESC')
-    end
+  # note:  tagged_with is defined in story.rb
+  def search
+ @stories = Story.tire.search params[:q],:per_page => 20, :load => true
+ ##// Sorting, the include, 
+ 
+     ###@results = Painting.search(params[:query])
+       
+      
+  ###    options = { :page => (params[:page] || 1), :size => 100 }
+  ###  query = params[:q]
+ ### @results = Tire.search ['articles'], options do
+  ###   query { string query }
+  ###   from options[:size].to_i * (options[:page].to_i-1)
+  ###  end
 
-    # TODO: Change the "order" field to a valid name and sort by that.
-    @stati = Status.all(:order => 'id ASC')
+
+
+
+    render :action => "index"
+  end
+  def index
+    if params[:tag]
+      @stories = Story.tagged_with(params[:tag]).properly_ordered
+    else
+      @stories = Story.properly_ordered
+            
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -86,17 +103,34 @@ class StoriesController < ApplicationController
 
   def edit_multiple
     if params[:story_ids]
-      @stories = Story.find(params[:story_ids])
+      #@stories = Story.find(params[:story_ids])
+      @stories = Story.where(id: params[:story_ids]).order("statuses.status_order, priorities.priority_order, 
+        created_at DESC").
+          joins(:status, :priority).
+          select('stories.*, statuses.status_order as status_order, 
+            statuses.name as status_name,
+            priorities.priority_order as priority_order,
+            priorities.name as priority_name')
+            
+
       @users = User.all
       # TODO: Change the "order" field to a valid name and sort by that.
-      @stati = Status.all(:order => 'id ASC')
+      #@stati = Status.all(:status_order => 'id ASC')
     else
       redirect_to :stories
     end
   end
   
   def update_multiple
-    @stories = Story.find(params[:story_ids])
+    #@stories = Story.find(params[:story_ids])
+    @stories = Story.where(id: params[:story_ids]).order("statuses.status_order, priorities.priority_order, 
+        created_at DESC").
+          joins(:status, :priority).
+          select('stories.*, statuses.status_order as status_order, 
+            statuses.name as status_name,
+            priorities.priority_order as priority_order,
+            priorities.name as priority_name')
+            
     # the view ensures that we have numbers coming back instead of text for the priorities
     #    TODO: for status
     

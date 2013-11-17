@@ -11,20 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518230427) do
+ActiveRecord::Schema.define(:version => 20130609223852) do
 
   create_table "priorities", :force => true do |t|
     t.string   "name"
-    t.integer  "order"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "priority_order"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "statuses", :force => true do |t|
     t.string   "name"
-    t.integer  "order"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "status_order"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "stories", :force => true do |t|
