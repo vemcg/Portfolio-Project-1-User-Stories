@@ -22,6 +22,9 @@
 
 #
 #     $ rails new tired -m https://github.com/karmi/tire/raw/master/examples/rails-application-template.rb
+#     Using this altered version of the file to create a complete application called tired:
+#     $ rails new tired -m rails-application-template.rb
+#
 #
 # ===================================================================================================================
 
